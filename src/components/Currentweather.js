@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import partlycloudy from "../img/weather-icons/partlycloudy.svg"
 
+
 function Currentweather() {
   return (
     <>

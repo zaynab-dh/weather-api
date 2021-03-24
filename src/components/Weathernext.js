@@ -1,16 +1,26 @@
-import React, { useEffect } from "react"
+import React, { Component } from "react"
 import partlycloudy from "../img/weather-icons/partlycloudy.svg"
 import clear from "../img/weather-icons/clear.svg"
-function Weathernext() {
+
+function Weathernext(props) {
   return (
-    <>
-        <div className="weather-next24h">
+    
+        
             <div className="first3hours img">
-              <div className="time">03:00</div>
-              <div className="icon"><img src={partlycloudy} alt="partlycloudy icon" /></div>
-              <div className="temp">8°C</div>
+              <div className="time">{props.time}</div>
+              <div className="icon"><img src={require(`../img/weather-icons/${props.icon.toLowerCase()}.svg`)} alt="partlycloudy icon" /></div>
+              <div className="temp">{props.temp}</div>
             </div>
-            <div className="second3hours img">
+            
+          
+        
+    
+  )
+}
+
+export default Weathernext
+
+{/* <div className="second3hours img"> 
               <div className="time">06:00</div>
               <div className="icon"><img src={partlycloudy} alt="partlycloudy icon" /></div>
               <div className="temp">9°C</div>
@@ -39,11 +49,4 @@ function Weathernext() {
               <div className="time">21:00</div>
               <div className="icon"><img src={partlycloudy} alt="partlycloudy icon" /></div>
               <div className="temp">13°C</div>
-            </div>
-          
-        </div>
-    </>
-  )
-}
-
-export default Weathernext
+            </div>*/}
