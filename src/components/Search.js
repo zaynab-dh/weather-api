@@ -1,33 +1,31 @@
 import React from "react";
 import Button from "react-bootstrap/Button"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import fog from "../img/weather-icons/fog.svg";
-import rain from "../img/weather-icons/rain.svg";
-import snow from "../img/weather-icons/snow.svg";
-import storm from "../img/weather-icons/storm.svg";
-import clear from "../img/weather-icons/clear.svg";
-import clouds from "../img/weather-icons/clouds.svg";
-import unknown from "../img/weather-icons/unknown.svg";
-import drizzle from "../img/weather-icons/drizzle.svg";
-import mostlycloudy from "../img/weather-icons/mostlycloudy.svg";
-import partlycloudy from "../img/weather-icons/partlycloudy.svg";
+
+import {default as fog} from "../img/weather-icons/fog.svg";
+import {default as rain} from "../img/weather-icons/rain.svg";
+import {default as snow} from "../img/weather-icons/snow.svg";
+import {default as storm} from "../img/weather-icons/storm.svg";
+import {default as clear} from "../img/weather-icons/clear.svg";
+import {default as clouds} from "../img/weather-icons/clouds.svg";
+import {default as unknown} from "../img/weather-icons/unknown.svg";
+import {default as drizzle} from "../img/weather-icons/drizzle.svg";
+import {default as mostlycloudy} from "../img/weather-icons/mostlycloudy.svg";
+import {default as partlycloudy} from "../img/weather-icons/partlycloudy.svg";
 import "./Search.css";
 import { useState } from 'react';
-const ap = {
-  key: "5b32436ff4230918f547069b968b2d0b",
-  base: "https://api.openweathermap.org/data/2.5/"
-}
+
 function img (temp){
-  let a=Math.round(temp)
+  
   console.log(temp);
-  if(a<300){return require("../img/weather-icons/storm.svg")}
-  if(a>300 && a<499){return require("../img/weather-icons/drizzle.svg")}
-  if(a>500 && a<599){return require("../img/weather-icons/rain.svg")}
-  if(a>600 && a<699){return require("../img/weather-icons/snow.svg")}
-  if(a>700 && a<799){return require("../img/weather-icons/fog.svg")}
-  if(a=800){return require("../img/weather-icons/clear.svg")}
-  if(a=801){return require("../img/weather-icons/partlycloudy.svg")}
-  if(a>801 && a<805){return require("../img/weather-icons/mostlycloudy.svg")}
+  if(temp<300){return storm}
+  if(temp>300 && temp<499){return drizzle}
+  if(temp>500 && temp<599){return rain}
+  if(temp>600 && temp<699){return snow}
+  if(temp>700 && temp<799){return fog}
+  if(temp=800){return clear}
+  if(temp=801){return partlycloudy}
+  if(temp>801 && temp<805){console.log(temp)}
 }
 function Api() {
   const [query, setQuery] = useState('');
@@ -50,6 +48,7 @@ function Api() {
 
  
     return (
+      <div className="app">
       <div className="search">
       
         {/* {this.state.input} */}
@@ -70,8 +69,11 @@ function Api() {
         >
           FIND WEATHER
         </Button>
+        </div>
+        
         {(typeof weather.main != "undefined") ? (
-          <div>
+          <div className="main">
+          
           <div className="weather-row">
           <div className= "weather-icon"><img src={img(weather.weather[0].id)} alt="partlycloudy icon" /></div> 
             <div className="weather-description">overcast clouds</div>
@@ -90,9 +92,49 @@ function Api() {
               </div>
             </div>
           </div>
-         
+          <div className="weather-next24h">
+            <div className="first3hours img">
+              <div className="time"></div>
+              <div className="icon"><img  alt="partlycloudy icon" /></div>
+              <div className="temp"></div>
             </div>
+            <div className="second3hours img"> 
+              <div className="time">06:00</div>
+              <div className="icon"><img src={mostlycloudy} alt="partlycloudy icon" /></div>
+              <div className="temp">9°C</div>
+            </div>
+            <div className="thirdrd3hours img">
+              <div className="time">09:00</div>
+              <div className="icon"><img src={clear} alt="clear icon" /></div>
+              <div className="temp">14°C</div>
+            </div>
+            <div className="fourth3hours img">
+              <div className="time">12:00</div>
+              <div className="icon"><img src={clear} alt="clear icon" /></div>
+              <div className="temp">17°C</div>
+            </div>
+            <div className="fifth3hours img">
+              <div className="time">15:00</div>
+              <div className="icon"><img src={clear} alt="clear icon" /></div>
+              <div className="temp">18°C</div>
+            </div>
+            <div className="sixth3hours img">
+              <div className="time">18:00</div>
+              <div className="icon"><img src={clear} alt="clear icon" /></div>
+              <div className="temp">16°C</div>
+            </div>
+            <div className="seventh3hours img">
+              <div className="time">21:00</div>
+              <div className="icon"><img src={partlycloudy} alt="partlycloudy icon" /></div>
+              <div className="temp">13°C</div>
+            </div>
+            </div>
+          </div>
+          
+            
+            
             ) : ('')}
+            
       </div>
     );
   }

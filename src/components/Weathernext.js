@@ -1,20 +1,11 @@
 import React, { Component } from "react"
-import partlycloudy from "../img/weather-icons/partlycloudy.svg"
-import clear from "../img/weather-icons/clear.svg"
 
 function Weathernext(props) {
   return (
-    
+    <>
         
-            <div className="first3hours img">
-              <div className="time">{props.time}</div>
-              <div className="icon"><img src={require(`../img/weather-icons/${props.icon.toLowerCase()}.svg`)} alt="partlycloudy icon" /></div>
-              <div className="temp">{props.temp}</div>
-            </div>
             
-          
-        
-    
+    </>
   )
 }
 

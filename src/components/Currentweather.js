@@ -1,6 +1,5 @@
-import React, { useEffect } from "react"
-import partlycloudy from "../img/weather-icons/partlycloudy.svg"
-import Api from "./Search"
+import React from "react"
+
 
 function Currentweather() {
   return (
