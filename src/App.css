@@ -1,6 +1,10 @@
- 
+.app {
+  height: 100vh;
+  width: 100vw;
+  transition: background-color 1s ease-in;
+}
 
-/* .app__header, 
+.app__header,
 .app__main {
   width: 100%;
   display: flex;
@@ -10,109 +14,152 @@
   font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}*/
+}
 
-/*  Search bar */
+div {
+  border-width: 0;
+}
 
-/* Current weather */
+*{
+  box-sizing: border-box;
+}
 
-/* div { 
-  border: 5px solid red;
-  
-}*/
-.main {
+.app{
+  display: inline-table;
+  width: calc(100vw - 80px);
   background-color: #a5cdf0;
-  height: 100vh;
+  font-family: "Raleway", sans-serif;
+  padding-bottom: 20px;
+
+}
+
+.app header{
+  padding : 14px;
+  background-color: #7c9ed5;
+  width: 100%;
+  margin-bottom: 30px ;
+}
+
+.app header .btn{
+  color:#010745;
+  background-color: #5d7ac1;
+  padding: 14px;
+  margin-left: 5px;
+  border-width: 0;
+}
+
+.app header .search   {
+  background-color: transparent;
+  border-width: 0;
+  font-size: 20px;
+  color: white;
+}
+
+.today-weather{
+  color: #010745;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  width: 100% ;
+}
+
+.today-weather h2 {
+  display: inline-block;
+  text-align: center;
+  margin-right: 5px;
+  font-size: 16px;
+  font-weight: 1000;
+}
+
+.today-weather p{
+  font-size: 13px;
+  display: inline-block;
+  text-align: center;
+}
+
+.today-weather > p:nth-of-type(1){
+  color: white;
+  margin-top: 0;
+font-size: 23px;
+font-weight: 1000;
+}
+
+.today-weather p:nth-of-type(2){
+  font-size: 12px;
+  display: block;
+}
+
+
+.today-weather-details-title{
+  font-weight: 1000;
+  margin-right: 5px;
+}
+
+.today-weather-details-value{
+  margin-right: 10px;
+  font-weight: lighter;
+  font-size: 10px;
+  
+}
+
+.rest-of-today-weather{
+  width: 80%;
+  margin-top: 30px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+}
+
+.rest-of-today-weather div{
+  display: inline-block;
+}
+
+.rest-of-today-weather div p{
+  text-align: center;
+}
+
+.rest-of-today-weather div .hour{
+  margin-bottom: 20px;
+}
+
+.today-title{
+  margin-left: 10px;
+  font-weight: bold;
   font-family: "Raleway", sans-serif;
 }
-.search {
-  
-  height: 80px;
-  background-color: #7c9ed5;
-}
-#input-name {
-  border:none;
-  border-bottom: 1px solid #1890ff;
-  background-color: #7c9ed5;
-  color: white;
-  outline: none;
-  font-size: x-large;
-  margin-top: 20px;
-  margin-left: 20px;
-}
 
-[placeholder]:focus::-webkit-input-placeholder {
-  transition: text-indent 0.4s 0.4s ease; 
-  text-indent: -100%;
-  opacity: 1;
-}
-
-button {
-  font-size: larger;
+.today-value{
   margin-left: 10px;
-  margin-top: -10px;
 }
-.weather-description {
-  color: white;
-  font-size: xx-large;
-}
-.temperature {
-  display: flex;
-  color: #16205a;
-  margin-top: 20px;
-  font-size: larger;
-}
-.humidity {
-  display: flex;
-  color: #16205a;
-}
-.pressure {
-  display: flex;
-  color: #16205a;
-}
-.temp-text {
-  font-weight:bold ;
-}
-.weather-icon {
-  width: 200px;
-  height: 200px;
-}
-.weather-row {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+.no-data{
+  width: 100vw;
+  padding: 40px;
   text-align: center;
-  
 }
-.weather-row-ph {
-  display: flex;
-  margin-top: 20px;
-}
-.temp-value,.humidity-value,.pressure-text,.pressure-value {
-  margin-left: 10px;
-}
-.humidity-text,.pressure-text {
-  font-weight: bold;
-}
-.icon {
-  width: 100px;
-  height: 100px;
-}
-.weather-next24h {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 80px;
-}
-.img {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-}
-body {
-  overflow: hidden;
-  background-color: #a5cdf0;
+
+@media only screen and (max-width: 480px) {
+  section{
+    width: 100vw;
+  }
+
+  .app{
+    width: 100vw;
+  }
+  .app header{
+    width: 100vw;
+  }
+
+  .rest-of-today-weather{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  body{
+    margin: 0;
+    padding: 0;
+  }
 }
